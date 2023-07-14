@@ -1,0 +1,20 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:barrosodegas/configurations-qa-prod.git
+          timeout: 3
+          clone-on-start: true
+          force-pull: true
+          deleteUntrackedBranches: true
+          default-label: master
+  security:
+    user:
+      name: root
+      password: s3cr3t
