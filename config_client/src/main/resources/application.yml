@@ -1,0 +1,22 @@
+server:
+  port: 8880
+
+spring:
+  application:
+    name: config-client
+  config:
+    import: "optional:configserver:http://root:s3cr3t@localhost:8888"
+  cloud:
+    config:
+      auto-refresh: true
+      refresh-interval: 60
+      name: rest-crud-api
+      profile: qa
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+          - health
